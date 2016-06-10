@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITableViewDelegate {
     //how many rows should the table view have?
     var numberOfRowsInTableView = 20
     
+    //to hold the current times table value
     @IBOutlet var currentTimeTableValue: UILabel!
     
     //this variable holds the values displayed in the table view
@@ -49,6 +50,7 @@ class ViewController: UIViewController, UITableViewDelegate {
         //present the content of the cells after multiplying the timesTable value by the specific row index. Plus 1 to replace the 0 to 19 index range with 1 to 20
         cell.textLabel?.text = "\(timesTable) * \(indexPath.row + 1) = \(timesTable * (indexPath.row + 1))"
         
+        //update the label with current times table value
         currentTimeTableValue.text = String(timesTable)
         
         //to determine which cells should be red as oppose to blue
