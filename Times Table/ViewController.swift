@@ -14,6 +14,8 @@ class ViewController: UIViewController, UITableViewDelegate {
     //how many rows should the table view have?
     var numberOfRowsInTableView = 20
     
+    @IBOutlet var currentTimeTableValue: UILabel!
+    
     //this variable holds the values displayed in the table view
     @IBOutlet var table: UITableView!
     
@@ -45,13 +47,15 @@ class ViewController: UIViewController, UITableViewDelegate {
         let timesTable = Int(sliderValue.value * 20)
         
         //present the content of the cells after multiplying the timesTable value by the specific row index. Plus 1 to replace the 0 to 19 index range with 1 to 20
-        cell.textLabel?.text = String(timesTable * (indexPath.row + 1))
+        cell.textLabel?.text = "\(timesTable) * \(indexPath.row + 1) = \(timesTable * (indexPath.row + 1))"
+        
+        currentTimeTableValue.text = String(timesTable)
         
         //to determine which cells should be red as oppose to blue
         if indexPath.row % 2 == 0 {
-            cell.textLabel?.textColor = UIColor.redColor()
+            cell.textLabel?.textColor = UIColor.magentaColor()
         }else {
-            cell.textLabel?.textColor = UIColor.blueColor()
+            cell.textLabel?.textColor = UIColor.orangeColor()
         }
         
         return cell
